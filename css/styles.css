@@ -1,8 +1,9 @@
 /**
  * Font family embeds
  **/
+ 
 @font-face {
-    font-family: 'leytonstone_dbregular';
+    font-family: 'Leytonstone';
     src: url('../fonts/../fonts/leytonstone-regulardb-webfont.eot');
     src: url('../fonts/leytonstone-regulardb-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/leytonstone-regulardb-webfont.woff') format('woff'),
@@ -12,7 +13,7 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'MuseoSlab500';
+    font-family: 'MuseoSlab';
     src: url('../fonts/Museo_Slab_500-webfont.eot');
     src: url('../fonts/Museo_Slab_500-webfont.eot?iefix') format('eot'),
          url('../fonts/Museo_Slab_500-webfont.woff') format('woff'),
@@ -29,79 +30,36 @@
  * P.S.: IE7+8, I still hate you.
  **/
 
-body {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight: 300;
-	font-size: 1em; /* 16px */
-	color: #b6bbc7;
-	background: #1a243b url('../img/bodybg.jpg') repeat;
-}
+html { background: url('../img/bodybg.jpg') repeat; }
+body { background: url('../img/headerbg.jpg') top center no-repeat; font-size: 16px; color: #b6bbc7; }
 
-h1 {
-	background: url('../img/header_title.png') center center no-repeat;
-	text-indent: -9999px;
-	height: 191px;
-	width: 468px;
-}
-
+h1 { text-indent: -9999px; height: 1px; width: 1px; }
 h2 {
-	font-family: 'La Belle Aurore', cursive;	
-	font-weight: 400;
-	font-size: 3.125em; /* 50px */
-	line-height: 1.5em;
+	font-family: 'Leytonstone', cursive;
+	font-size: 60px;
+	line-height: 25px;
 	color: #fffef4;
 	text-shadow: 0px -1px 0px #000000;
-	margin-left:-5px;
+	margin-left: -5px;
+	font-weight: normal;
 }
+h3 { font-family: 'MuseoSlab', serif; font-size: 21px; color: #fffef4; text-shadow: 0px 1px 0px #000000; font-weight: normal; }
 
-h3 {
-	font-family: 'Kreon', serif;
-	font-weight: 400;
-	font-size: 1.5em; /* 24px */
-	color: #fffef4;
-	text-shadow: 0px -1px 0px #000000;
+p { line-height: 1.5em; margin-top:10px; }
+a { color: #fffef4; font-weight: bold; }
+
+#header { margin-top: 74px; }
+#header #header_photo {  }
+#header #header_details { margin-top: 45px; }
+#header_details > .row { 
+	margin-top: 30px; 
+	font-family: 'MuseoSlab', serif; 
+	font-size: 24px; 
+	line-height: 30px; 
+	color: #fffef4; 
+	text-shadow: 0px -1px 0px #000000; 
 }
-
-p {
-	line-height: 1.5em;
-	margin-top:10px;
-}
-	@media all and (max-width: 1024px) { /* Making text bigger for tablets/phones */
-		p {
-			font-size: 1.3em;
-		}
-	}
-
-a {
-	color: #fffef4;
-	font-weight: bold;
-}
-
-header {
-	background: url('../img/headerbg.jpg') top center repeat-x;	
-	padding-top:74px;
-	width: 100%;
-	overflow: hidden;
-	clear: both;
-}
-
-	header section {
-		overflow: visible;
-	}
-
-	div#header_photo {
-		margin-left: -54px;	
-		float: left;
-	}
-	
-	div#header_details {
-		width: 490px;
-		text-align: center;
-		overflow: auto;
-		float: right;
-		margin-top: 45px;
-		clear: right;
-	}
+#header_details > .row .alt { font-size: 21px; color: #7a8295; }
 	
 	div#header_details a {
 		display: block;	
