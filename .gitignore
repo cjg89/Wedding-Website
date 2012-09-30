@@ -1,3 +1,10 @@
 # Font files #
 ##############
 css/fonts/
+Lib/Events.php
+Lib/Login.php
+Lib/News.php
+Lib/ObjectTemplate.php
+Lib/Orders.php
+Lib/Reservations.php
+Lib/menuItems.php
