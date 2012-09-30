@@ -1,14 +1,33 @@
-@charset "UTF-8";
+/**
+ * Font family embeds
+ **/
+@font-face {
+    font-family: 'leytonstone_dbregular';
+    src: url('../fonts/../fonts/leytonstone-regulardb-webfont.eot');
+    src: url('../fonts/leytonstone-regulardb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/leytonstone-regulardb-webfont.woff') format('woff'),
+         url('../fonts/leytonstone-regulardb-webfont.ttf') format('truetype'),
+         url('../fonts/leytonstone-regulardb-webfont.svg#leytonstone_dbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MuseoSlab500';
+    src: url('../fonts/Museo_Slab_500-webfont.eot');
+    src: url('../fonts/Museo_Slab_500-webfont.eot?iefix') format('eot'),
+         url('../fonts/Museo_Slab_500-webfont.woff') format('woff'),
+         url('../fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
+         url('../fonts/Museo_Slab_500-webfont.svg#webfontyumMOUTD') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 /** 
-* Written by the bride.
-* P.S.: IE7+8, I still hate you.
-**/
-
-/* Make HTML 5 elements display block-level for consistent styling */  
-header, nav, article, footer, address {  
-    display: block;  
-}  
+ * Site styles.
+ * Written by the bride.
+ * P.S.: IE7+8, I still hate you.
+ **/
 
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
