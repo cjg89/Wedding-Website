@@ -12,7 +12,6 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<script type="text/javascript" src="js/placeholder.js"></script>
 <script type="text/javascript" src="js/imagetick.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 <script type="text/javascript">
@@ -72,7 +71,6 @@
         
         <div class="row" id="rsvp">
         	<div class="span12">
-            
                 <div id="rsvp_content_top">
                     <h2 id="rsvp_header">Can You Make It?</h2>
                     <p>Please use the form below to RSVP.  Please note that seating is limited at our venue; due to our anticipated number of guests, we unfortunately cannot accommodate space for plus ones.  We apologize and appreciate your understanding.</p>
@@ -80,21 +78,21 @@
                 
                 <form method="post" action="">
                     <fieldset>
-                        <label id="label_names" for="names">Your Name(s)</label>
-                            <input type="text" required placeholder="Your Name(s)" name="names" id="names">
-                            <br/>
-                            <label id="label_attending" for="attending">Will you be attending?</label>
-                            <input type="radio" required name="attending" id="yes" value="Yes">
-                                <label id="label_yes" for="yes">I / We will be there!</label>
+                        <label id="label_names" for="names">Please enter four-digit RSVP code on your invitation below:</label>
+                        <input type="text" required name="rsvp_code" id="rsvp_code">
+                        <br/>
+                         <label id="label_attending" for="attending">Will you be attending?</label>
+                         	<input type="radio" required name="attending" id="yes" value="Yes">
+                            <label id="label_yes" for="yes">I / We will be there!</label>
                             <input type="radio" required name="attending" id="no" value="No">
-                                <label id="label_no" for="no">With regrets</label>    
-                            <br/>    
-                            <label id="label_foodallergies" for="foodallergies">Do you need any accomodations for food allergies?</label>
-                            <textarea name="foodallergies" id="foodallergies" placeholder="Do you need any accomodations for food allergies?"></textarea>						
-                            <label id="label_otherinfo" for="otherinfo">Anything else we should know/Questions?</label>
-                            <textarea name="otherinfo" id="otherinfo" placeholder="Anything else we should know / Questions?"></textarea>
-                            <br/>
-                            <input type="submit" name="submit" id="submit">
+                            <label id="label_no" for="no">With regrets</label>    
+                        <br/>    
+                        <label id="label_foodallergies" for="foodallergies">Do you need any accomodations for food allergies?</label>
+                        <textarea name="foodallergies" id="foodallergies"></textarea>						
+                        <label id="label_otherinfo" for="otherinfo">Anything else we should know/Questions?</label>
+                        <textarea name="otherinfo" id="otherinfo"></textarea>
+                        <br/>
+                        <input type="submit" name="submit" id="submit">
                     </fieldset>
                 </form>
 			</div>

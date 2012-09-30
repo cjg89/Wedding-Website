@@ -33,7 +33,7 @@
 html { background: url('../img/bodybg.jpg') repeat; }
 body { background: url('../img/headerbg.jpg') top center no-repeat; font-size: 16px; color: #b6bbc7; }
 
-h1 { text-indent: -9999px; height: 1px; width: 1px; }
+h1 { text-indent: -9999px; line-height: 1px; }
 h2 {
 	font-family: 'Leytonstone', cursive;
 	font-size: 60px;
@@ -48,6 +48,19 @@ h3 { font-family: 'MuseoSlab', serif; font-size: 21px; color: #fffef4; text-shad
 p { line-height: 1.5em; margin-top:10px; }
 a { color: #fffef4; font-weight: bold; }
 
+img { }
+img.alignright { float: right; margin-right: -30px; }
+
+hr {
+	display: block;
+	height: 100px;
+	margin:auto;
+	clear:both;
+	border: 0;
+	color: #1a243b; /* dumb ie fix */
+}
+
+
 #header { margin-top: 74px; }
 #header #header_photo {  }
 #header #header_details { margin-top: 45px; }
@@ -61,210 +74,45 @@ a { color: #fffef4; font-weight: bold; }
 }
 #header_details > .row .alt { font-size: 21px; color: #7a8295; }
 	
-	div#header_details a {
-		display: block;	
-		margin: 14px 0 0 76px;
-		width: 300px;
-		height: 111px;
-		background: url('../img/spritesheet.png') center center no-repeat;
-		background-position: 0px -1067px;
-		text-indent: -9999px;
-	}
-	
-		div#header_details a:hover {
-			background-position: 0px -946px;
-		}
-
-section {
-	width:80%;
-	min-width: 956px;
-	max-width: 1024px;
-	margin:auto;
-	padding:20px;
-	overflow: hidden;
+#header_details a {
+	display: block;	
+	margin: 14px 0 0 76px;
+	width: 300px;
+	height: 111px;
+	background: url('../img/spritesheet.png') center center no-repeat;
+	background-position: 0px -1067px;
+	text-indent: -9999px;
 }
+#header_details a:hover { background-position: 0px -946px; }
 
-article {
-	margin-bottom:24px;
-}
 
-	img.alignright {
-		float: right;
-		margin-right: -30px;
-	}
-	
-	img.padbreak_top {
-		margin-top: -115px;	
-	}
-	
-hr {
-	display: block;
-	height: 100px;
-	margin:auto;
-	clear:both;
-	border: 0;
-	color: #1a243b; /* dumb ie fix */
-}
-
-	hr#hr_top {
-		background: url('../img/hr_top.png') center center no-repeat;	
-	}
-	
-	hr#hr_bottom {
-		background: url('../img/hr_bottom.png') center center no-repeat;	
-	}
-	
-	*:first-child+html hr { /* IE7, you still dumb */
-		display:list-item;
-		filter:alpha(opacity=0);/* gets rid of horizontal bar to right of image */
-		width:0;		/* prevents tiling */
-		margin-top:-10px;
-	}
-		*:first-child+html hr#hr_top {
-			list-style:url('../img/hr_top.png') inside;
-		}
-		*:first-child+html hr#hr_bottom {
-			list-style:url('../img/hr_bottom.png') inside;
-		}
-
-h2#rsvp {
-	text-indent: -9999px;	
-	line-height: 1px;
-}
-
-section#rsvpwrap {
-	width: 980px;
-	min-height: 140px;
+#rsvp {
 	background: url('../img/rsvp_bg.png') repeat;
-	margin: 30px auto 30px auto;
-	overflow: auto;
-	padding:0;
-	font-family: 'Kreon', serif;
-	font-weight: 300;
-	font-size: 1.313em; /* 21px */
+	font-family: 'MuseoSlab', serif;
+	font-size: 21px;
 	color: #fffef4;
 	text-shadow: 0px -1px 0px #000000;
 }
+#rsvp p { line-height: 24px; }
+#rsvp #rsvp_content_top { text-align: center; padding-top: 20px; }
 
-	div#rsvp_topleft, div#rsvp_topright, div#rsvp_bottomleft, div#rsvp_bottomright {
-		background: url('../img/spritesheet.png') center center no-repeat;
-		width: 70px;
-		height: 166px;
-	}
+#rsvp h2#rsvp_header { font-family: 'MuseoSlab', serif; font-size: 36px; color: #fffef4; text-shadow: 0px -1px 0px #000000;	}
+
+form { text-align: center; padding-top: 15px; }
 	
-		div#rsvp_topleft {
-			background-position: 0px -352px;
-			float:left;
-		}
-			@media all and (max-width: 1024px) { /* Mobile Safari fix - removes border caused by an empty div */
-				div#rsvp_topleft {
-					margin-left: -1px;
-				}
-			}
-		
-		div#rsvp_topright {
-			background-position: 0px -528px;
-			float:right;
-			clear:right;
-		}
-		
-		div#rsvp_bottomleft {
-			background-position: 0px 0px;
-			float:left;
-			margin-top: -150px;
-		}
-			@media all and (max-width: 1024px) { /* Mobile Safari fix - removes border caused by an empty div */
-				div#rsvp_bottomleft {
-					margin-left: -1px;
-				}
-			}
-		
-		div#rsvp_bottomright {
-			background-position: 0px -176px;
-			float:right;
-			clear: right;
-			margin-top: -150px;
-		}
-		
-	div#rsvp_content_top {
-		border-top: 2px solid #0e1014;
-		float:left;
-		width: 840px;
-		text-align: center;
-		padding-top: 20px;
-	}
-		
-	div#rsvp_content_center {
-		width: 978px;	
-		border: 0 1px solid #2d3341;
-		border-top: 0px; /* IE7, you dumb */
-		border-bottom: 0px; /* Really dumb */
-		overflow: visible;
-		clear: both;
-		text-align:center;
-	}
-	
-	div#rsvp_content_bottom {
-		width: 840px;
-		float: left;
-		text-align:center;
-		margin-top: -150px;
-	}
-		
-	h2#rsvp_header {
-		font-family: 'Kreon', serif;
-		font-weight: 700;
-		font-size: 1.714em; /* 36px, in relation to parent section's font size */
-		color: #fffef4;
-		text-shadow: 0px -1px 0px #000000;	
-	}
-	
-	section#rsvpwrap p {
-		line-height: 24px;	
-	}
-	
-	form {
-		text-align: center;	
-		padding-top: 15px;
-	}
-	
-	label#label_names, label#label_attending, label#label_foodallergies, label#label_otherinfo {
-		display: inline-block;
-		text-indent: -9999px;
-		text-transform: capitalize;
-		width: 0px;
-		height: 0px;
-	}
-	
-	input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* IE10 input + textareas, if anyone's actually using it right now */
-		color: #6a7286;
-		text-align: center;
-	}
-	input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { /* Webkit input + textareas */
-		color: #6a7286;
-	}
-	input:-moz-placeholder, textarea:-moz-placeholder { /* Firefox input + textareas */
-    	color: #6a7286;
-	}
-	.placeholder { /* Class created by placeholder.js on stupid browsers */
-		font-size: 18px;
-		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-		font-weight: 200;
-	}
-	
-	form input#names {
-		display: block;
-		width: 836px;
-		height: 30px;
-		font-size: 18px;
-		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-		font-weight: 200;
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 20px;
-		padding: 10px 20px;
-	}
+form input#names {
+	display: block;
+	width: 836px;
+	height: 30px;
+	font-size: 18px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 200;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+}
 	
 	input#no, input#yes {
 		cursor: pointer;
