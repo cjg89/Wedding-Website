@@ -25,7 +25,7 @@
 
 
 /** 
- * Site styles.
+ * Standard Site styles.
  * Written by the bride.
  * P.S.: IE7+8, I still hate you.
  **/
@@ -43,13 +43,21 @@ h2 {
 	margin-left: -5px;
 	font-weight: normal;
 }
-h3 { font-family: 'MuseoSlab', serif; font-size: 21px; color: #fffef4; text-shadow: 0px 1px 0px #000000; font-weight: normal; }
+h3 { 
+	font-family: 'MuseoSlab', serif; 
+	font-size: 21px; 
+	line-height: 24px; 
+	color: #fffef4; 
+	text-shadow: 0px 1px 0px #000000; 
+	font-weight: normal; 
+	padding-top: 8px; 
+}
 
 p { line-height: 1.5em; margin-top:10px; }
 a { color: #fffef4; font-weight: bold; }
 
 img { }
-img.alignright { float: right; margin-right: -30px; }
+img.alignright { float: right; }
 
 hr {
 	display: block;
@@ -59,6 +67,10 @@ hr {
 	border: 0;
 	color: #1a243b; /* dumb ie fix */
 }
+
+.container.wide { width: 100%; }
+.container.wide > .row { margin: auto; width: 940px; }
+.container.wide > .row > div:first-child { margin-left: 0; }
 
 
 #header { margin-top: 74px; }
@@ -73,21 +85,21 @@ hr {
 	text-shadow: 0px -1px 0px #000000; 
 }
 #header_details > .row .alt { font-size: 21px; color: #7a8295; }
-	
+
 #header_details a {
 	display: block;	
-	margin: 14px 0 0 76px;
 	width: 300px;
 	height: 111px;
 	background: url('../img/spritesheet.png') center center no-repeat;
 	background-position: 0px -1067px;
 	text-indent: -9999px;
+	margin: auto;
 }
 #header_details a:hover { background-position: 0px -946px; }
 
 
+#rsvp_wrap { background: url('../img/rsvp_bg.png') repeat; margin: 50px 0; }
 #rsvp {
-	background: url('../img/rsvp_bg.png') repeat;
 	font-family: 'MuseoSlab', serif;
 	font-size: 21px;
 	color: #fffef4;
@@ -95,89 +107,74 @@ hr {
 }
 #rsvp p { line-height: 24px; }
 #rsvp #rsvp_content_top { text-align: center; padding-top: 20px; }
-
-#rsvp h2#rsvp_header { font-family: 'MuseoSlab', serif; font-size: 36px; color: #fffef4; text-shadow: 0px -1px 0px #000000;	}
+#rsvp h2#rsvp_header { 
+	font-family: 'MuseoSlab', serif; 
+	font-size: 36px; 
+	color: #fffef4; 
+	text-shadow: 0px -1px 0px #000000; 
+	margin-left: 0;	
+}
 
 form { text-align: center; padding-top: 15px; }
-	
-form input#names {
-	display: block;
-	width: 836px;
-	height: 30px;
+form input[type="text"], form textarea { 
 	font-size: 18px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 200;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 20px;
+	text-align: center; 
 	padding: 10px 20px;
 }
 	
-	input#no, input#yes {
-		cursor: pointer;
-	}
-	
-	label#label_yes, label#label_no {
-		font-size: 24px;
-		margin-left: 5px;
-		line-height: 47px;
-		vertical-align: top;
-		cursor: pointer;
-	}
-		label#label_yes {
-			margin-right: 110px;
-		}
-	
-	form textarea {
-		margin-top: 20px;
-		width: 385px;
-		height: 160px;
-		padding: 20px;
-		*padding-left: 0px;
-		*padding-right: 0px;
-		font-size: 18px;
-		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-		font-weight: 200;
-		text-align: center;
-		resize: none;
-		overflow: auto;
-		
-	}
-		textarea#foodallergies {
-			margin-right: 20px;	
-		}
-		
-	input#submit {
-		width: 300px;
-		height: 111px;
-		border: 0;
-		text-indent: -9999px;
-		background: url('../img/spritesheet.png') center center no-repeat;
-		background-position: 0px -825px;
-		cursor: pointer;
-		margin-top: 15px;
-		text-transform: capitalize; /* IE7 needs this for some reason to work. */
-	}	
-		input#submit:hover {
-			background-position: 0px -704px;
-		}
+input#no, input#yes { cursor: pointer; }
+label#label_yes, label#label_no {
+	margin-left: 5px;
+	cursor: pointer;
+}
+label#label_yes {  }
+input#submit {
+	width: 300px;
+	height: 111px;
+	border: 0;
+	text-indent: -9999px;
+	background: url('../img/spritesheet.png') center center no-repeat;
+	background-position: 0px -825px;
+	cursor: pointer;
+	margin-top: 15px;
+	text-transform: capitalize; /* IE7 needs this for some reason to work. */
+}	
+input#submit:hover { background-position: 0px -704px; }
 
-footer {
-	text-align:center;	
-	padding: 50px 0;
-	background: #000 url('../img/footer_bg.jpg') top center repeat-x;
+#footer_wrap { background: #000 url('../img/footer_bg.jpg') top center repeat-x; }
+#footer { text-align:center; padding: 50px 0; }
+#footer p { font-size: 10px; margin-top: 30px; }
+#footer p a { color: #B6BBC7; }
+#footer p a:hover { color: #fff; }
+
+
+/** 
+ * Responsive Style Adjustments
+ **/
+@media (min-width: 768px) and (max-width: 979px) {
+	.container.wide > .row { width: 740px; }
+	.container.wide > .row > div:first-child { margin-left: 8px; }
+	
+	#header #header_details { margin-top: 20px; }
+	#header_details > .row { font-size: 18px; line-height: 22px; }
+	#header_details > .row .alt { font-size: 14px; line-height: 22px; }
+	
+	#wedding_info img { width: 300px; height: auto; }
 }
 
-	footer p {
-		font-size: 10px;
-		margin-top: 30px;
-	}
+@media (max-width: 767px) {
+	.container.wide { margin-left: -20px !important; padding-right: 40px; }
+	.container.wide > .row { width: 100%; }
+	.container.wide > .row > div:first-child { margin-left: 20px; }
 	
-	footer p a {
-		color: #B6BBC7;	
-	}
+	#header { text-align: center; }
+	#header #header_photo img { display: none; }
+	#header #header_details { margin-top: -20px; }
+	#header_details .span3 { width: 50%; float: left; }
+	#header_details > .row { font-size: 18px; line-height: 22px; }
+	#header_details > .row .alt { font-size: 14px; line-height: 22px; }
 	
-		footer p a:hover {
-			color: #fff;	
-		}
+	#wedding_info img { width: 100%; height: auto; float: none; }
+}
