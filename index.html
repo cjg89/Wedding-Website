@@ -25,6 +25,21 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+  
+  $(document).ready(function() {
+		//Ajax call to update the tables database table
+		
+		$.ajax({
+	         url: "Lib/Ajax.php",
+	         type: "POST",
+	         data: {code: "G-00001", attendees: null, comments: null, allergies: null, type: "reservation"},
+	         cache: false,
+	         success: function (response) {
+	         	alert(response);
+	         }
+	     });
+
+	});
 
 </script>
 </head>
