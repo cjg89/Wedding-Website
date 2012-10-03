@@ -14,6 +14,7 @@
 <![endif]-->
 <script type="text/javascript" src="js/imagetick.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -52,14 +53,15 @@
 					         	passFail = true;
 					         	var obj = jQuery.parseJSON(response);
 					         	
-					         	//$(this).prev().prev().prev().prev().val("");
-					         	//$(this).prev().prev().prev().prev().css('display', 'none');
+					         	$('#label_names').css('display','none');
+					         	$('#rsvp_code').css('display','none');
+					         	$('#rsvp_code').val("");
 					         	
 					         	$('#attendees').append('<table></table>');
 					         	
 					         	for(var i = 0; i < obj.length; i++) {
 					         		
-						         	$('#attendees').children().append('<tr id="' + obj[i].Id + '"><td><label class="label_attending">' + obj[i].Name + '</label><br /></td><td><label id="label_yes" for="yes">I / We will be there!</label><input type="radio" required name="attending" id="yes" value="Yes"></td><td><label id="label_no" for="no">With regrets</label><input type="radio" required name="attending" id="no" value="No"></td></tr>');
+						         	$('#attendees').children().append('<tr id="' + obj[i].Id + '"><td><label class="label_attending">' + obj[i].Name + '</label><br /></td><td><label id="label_yes" for="yes">I / We will be there!</label><input type="radio" required name="attending' + i +'" class="yes" value="Yes"></td><td><label id="label_no" for="no">With regrets</label><input type="radio" required name="attending' + i +'" class="no" value="No"></td></tr>');
 					         	}		         	
 					         	
 					         	$('#hidden').fadeIn();
@@ -72,16 +74,46 @@
 
 		});
 		
-		$('#submit').click(function() {
+		$('.submit').click(function() {
 			
 			if(passFail == true) {
-				var allergies = $(this).prev().prev().children(':nth-child(5)').val();
-				var comments = $(this).prev().prev().children(':nth-child(7)').val();
-				alert(alleries);
-				alert(comments);			
+				var allergies = $(this).prev().prev().children(':nth-child(3)').val();
+				var comments = $(this).prev().prev().children(':nth-child(5)').val();
+				var attendees = new Object();
+				
+				var count = 0;
+				var attendeesCount = 0;
+				$('#attendees :radio').each(function(){
+
+				 if($(this).attr('checked') == 'checked'){
+					 attendees[$(this).parent().parent().attr('id')] = $(this).val();
+					 attendeesCount++;
+				 }
+				 alert(JSON.stringify(attendees));
+				 count++;
+				});
+				
+				if((count /2) == attendeesCount) {
+
+					$.ajax({
+				         url: "Lib/Ajax.php",
+				         type: "POST",
+				         data: {code: null, attendees: JSON.stringify(attendees), comments: comments, allergies: allergies, type: "attendees"},
+				         cache: false,
+				         success: function (response) {
+				         	alert(response);
+				         }
+			         });
+			         
+		        } else {
+			        alert('Please select attending or declined for each member of your group.');
+		        }
+					
 			}
 			
 		});
+		
+		$()
 	
 	});
 
@@ -144,12 +176,6 @@
                         <label id="label_names" for="names">Please enter four-digit RSVP code on your invitation below:</label>
                         <input type="text" required name="rsvp_code" id="rsvp_code">
                         <br/>
-                      <!-- 		 <label id="label_attending" for="attending">Will you be attending?</label>
-                         	<input type="radio" required name="attending" id="yes" value="Yes">
-                            <label id="label_yes" for="yes">I / We will be there!</label>
-                            <input type="radio" required name="attending" id="no" value="No">
-                            <label id="label_no" for="no">With regrets</label>    
-                        <br/>     -->
                        <div id="hidden"><div id="attendees"></div> <label id="label_foodallergies" for="foodallergies">Do you need any accommodations for food allergies?</label>
                         <textarea name="foodallergies" id="foodallergies"></textarea>						
                         <label id="label_otherinfo" for="otherinfo">Anything else we should know/Questions?</label>

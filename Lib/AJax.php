@@ -65,10 +65,10 @@
 	}
 	
 	function updateAllergies($attendees, $comments, $allergies) {
-		//For when the user is deleteing a reservation
+		return $attendees;
 		
 	}
 	
-	echo ajaxCall(trim($_REQUEST['code']), trim($_REQUEST['attendees']), trim($_REQUEST['comments']), trim($_REQUEST['allergies']), trim($_REQUEST['type']));
+	echo ajaxCall(trim($_REQUEST['code']), json_decode($_REQUEST['attendees']), trim($_REQUEST['comments']), trim($_REQUEST['allergies']), trim($_REQUEST['type']));
 
 ?>
