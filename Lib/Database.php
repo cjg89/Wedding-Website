@@ -20,7 +20,7 @@ class Database {
 		//Connect and login to the database
 		$mySforceConnection = new SforceEnterpriseClient();
 		$mySforceConnection->createConnection('../enterprise.wsdl.xml');
-		$mySforceConnection->login(self::$USERNAME, self::$PASSWORD.self::$SECURITY_TOKEN);
+		$mySforceConnection->login(Constant::$USERNAME, Constant::$PASSWORD.Constant::$SECURITY_TOKEN);
 		
 		//Return the connection for use
 		return $mySforceConnection;

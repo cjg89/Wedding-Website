@@ -140,7 +140,13 @@ input#submit {
 	cursor: pointer;
 	margin-top: 15px;
 	text-transform: capitalize; /* IE7 needs this for some reason to work. */
+}
+#hidden {
+	display: none;
 }	
+#attendees table {
+	margin: auto;
+}
 input#submit:hover { background-position: 0px -704px; }
 
 #footer_wrap { background: #000 url('../img/footer_bg.jpg') top center repeat-x; }

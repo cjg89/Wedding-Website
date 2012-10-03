@@ -1,6 +1,7 @@
 <?php 
  // this starts the session 
  include ("Database.php");
+ include_once ("Constants.php");
  require_once('../soapclient/SforceEnterpriseClient.php');
  
  	function ajaxCall($code, $attendees, $comments, $allergies, $type) {
@@ -30,7 +31,7 @@
 			$id = $records[0]->Id;
 			 
 			 //Query String for All Menu Items		
-			$query = "Select ID, Name FROM Attendee__c WHERE Group__c = '" . $id . "'";
+			$query = "Select ID, Name, RSVP__c FROM Attendee__c WHERE Group__c = '" . $id . "'";
 			
 			//Query the database
 			$results = $mySforceconnection->query(($query));
@@ -48,6 +49,7 @@
 			Database::logout($mySforceconnection);
 			
 			if(sizeof($records) > 0) {
+			
 				return json_encode($records);
 			}
 			
