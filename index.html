@@ -30,11 +30,12 @@
 	$(document).ready(function() {
 		
 		var passFail;
+		var code;
 		
 		$('#submit').click(function() {
 			
 			if(!passFail) {
-				var code = $(this).prev().prev().prev().prev().val();
+				code = $(this).prev().prev().prev().prev().val();
 				
 				if(code == "") {
 					alert("Sorry you must enter a registration code first");
@@ -86,10 +87,12 @@
 				$('#attendees :radio').each(function(){
 
 				 if($(this).attr('checked') == 'checked'){
-					 attendees[$(this).parent().parent().attr('id')] = $(this).val();
+				 	 var id = $(this).parent().parent().attr('id');
+					 attendees[id] = $(this).val();
 					 attendeesCount++;
 				 }
-				 alert(JSON.stringify(attendees));
+				 	
+				 
 				 count++;
 				});
 				
@@ -98,10 +101,14 @@
 					$.ajax({
 				         url: "Lib/Ajax.php",
 				         type: "POST",
-				         data: {code: null, attendees: JSON.stringify(attendees), comments: comments, allergies: allergies, type: "attendees"},
+				         data: {code: code, attendees: JSON.stringify(attendees), comments: comments, allergies: allergies, type: "attendees"},
 				         cache: false,
 				         success: function (response) {
-				         	alert(response);
+				         	if(response == "Success") {
+					         	alert('Thank you for responding to our invatation and we hope to see you are our wedding!');
+				         	} else if (response == "Failure") {
+					         	alert('We were unable to process your response to our invatation. Were are extremely sorry. Please try again letter or send us an email at jogreybill@gmail.com');
+				         	}
 				         }
 			         });
 			         
