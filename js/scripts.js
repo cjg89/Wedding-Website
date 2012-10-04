@@ -77,15 +77,14 @@ $(document).ready(function(){
 				code = "G-" + code;
 				$.ajax({
 					url: "Lib/Ajax.php",
-				    type: "POST",
+				    type: "POST",/*
 				    data: {
 						code: code, 
 						attendees: null, 
 						comments: null, 
 						allergies: null, 
 						type: "reservation"
-					},
-				    cache: false,
+					},*/
 				    success: function (response) {
 				    	if(response == "Sorry, this code doesn't match any guests on our guest list. Please try again.") {
 					        passFail = false;
