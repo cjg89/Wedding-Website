@@ -8,3 +8,6 @@ Lib/ObjectTemplate.php
 Lib/Orders.php
 Lib/Reservations.php
 Lib/menuItems.php
+Lib/error_log
+error_log
+phpinfo.php
