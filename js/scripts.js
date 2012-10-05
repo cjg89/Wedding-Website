@@ -77,14 +77,22 @@ $(document).ready(function(){
 				code = "G-" + code;
 				$.ajax({
 					url: "Lib/Ajax.php",
+<<<<<<< HEAD
 				    type: "POST",
+=======
+				    type: "POST",/*
+>>>>>>> 714f4014c754cfe60a634993cae07b9e055f3aab
 				    data: {
 						code: code, 
 						attendees: null, 
 						comments: null, 
 						allergies: null, 
 						type: "reservation"
+<<<<<<< HEAD
 					},
+=======
+					},*/
+>>>>>>> 714f4014c754cfe60a634993cae07b9e055f3aab
 				    success: function (response) {
 				    	if(response == "Sorry, this code doesn't match any guests on our guest list. Please try again.") {
 					        passFail = false;
