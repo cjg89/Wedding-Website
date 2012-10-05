@@ -26,103 +26,6 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-	
-	$(document).ready(function() {
-		
-		var passFail;
-		var code;
-		
-		$('#submit').click(function() {
-			
-			if(!passFail) {
-				code = $(this).prev().prev().prev().prev().val();
-				
-				if(code == "") {
-					alert("Sorry you must enter a registration code first");
-				} else {
-				code = "G-" + code;
-					$.ajax({
-				         url: "Lib/Ajax.php",
-				         type: "POST",
-				         data: {code: code, attendees: null, comments: null, allergies: null, type: "reservation"},
-				         cache: false,
-				         success: function (response) {
-				         	if(response == "Sorry, this code doesn't match any guests on our guest list. Please try again.") {
-					         	passFail = false;
-					         	alert(response);
-				         	} else {
-					         	passFail = true;
-					         	var obj = jQuery.parseJSON(response);
-					         	
-					         	$('#label_names').css('display','none');
-					         	$('#rsvp_code').css('display','none');
-					         	$('#rsvp_code').val("");
-					         	
-					         	$('#attendees').append('<table></table>');
-					         	
-					         	for(var i = 0; i < obj.length; i++) {
-					         		
-						         	$('#attendees').children().append('<tr id="' + obj[i].Id + '"><td><label class="label_attending">' + obj[i].Name + '</label><br /></td><td><label id="label_yes" for="yes">I / We will be there!</label><input type="radio" required name="attending' + i +'" class="yes" value="Yes"></td><td><label id="label_no" for="no">With regrets</label><input type="radio" required name="attending' + i +'" class="no" value="No"></td></tr>');
-					         	}		         	
-					         	
-					         	$('#hidden').fadeIn();
-				         	}
-				         	
-				         }
-			         });
-				}
-			}
-
-		});
-		
-		$('.submit').click(function() {
-			
-			if(passFail == true) {
-				var allergies = $(this).prev().prev().children(':nth-child(3)').val();
-				var comments = $(this).prev().prev().children(':nth-child(5)').val();
-				var attendees = new Object();
-				
-				var count = 0;
-				var attendeesCount = 0;
-				$('#attendees :radio').each(function(){
-
-				 if($(this).attr('checked') == 'checked'){
-				 	 var id = $(this).parent().parent().attr('id');
-					 attendees[id] = $(this).val();
-					 attendeesCount++;
-				 }
-				 	
-				 
-				 count++;
-				});
-				
-				if((count /2) == attendeesCount) {
-
-					$.ajax({
-				         url: "Lib/Ajax.php",
-				         type: "POST",
-				         data: {code: code, attendees: JSON.stringify(attendees), comments: comments, allergies: allergies, type: "attendees"},
-				         cache: false,
-				         success: function (response) {
-				         	if(response == "Success") {
-					         	alert('Thank you for responding to our invatation and we hope to see you are our wedding!');
-				         	} else if (response == "Failure") {
-					         	alert('We were unable to process your response to our invatation. Were are extremely sorry. Please try again letter or send us an email at jogreybill@gmail.com');
-				         	}
-				         }
-			         });
-			         
-		        } else {
-			        alert('Please select attending or declined for each member of your group.');
-		        }
-					
-			}
-			
-		});
-		
-		$()
-	
-	});
 
 </script>
 </head>
@@ -182,11 +85,13 @@
                     <fieldset>
                         <label id="label_names" for="names">Please enter four-digit RSVP code on your invitation below:</label>
                         <input type="text" required name="rsvp_code" id="rsvp_code">
-                        <br/>
-                       <div id="hidden"><div id="attendees"></div> <label id="label_foodallergies" for="foodallergies">Do you need any accommodations for food allergies?</label>
-                        <textarea name="foodallergies" id="foodallergies"></textarea>						
-                        <label id="label_otherinfo" for="otherinfo">Anything else we should know/Questions?</label>
-                        <textarea name="otherinfo" id="otherinfo"></textarea> </div>
+                        <div id="hidden">
+							<div id="attendees"></div>
+							<label id="label_foodallergies" for="foodallergies">Do you need any accommodations for food allergies?</label>
+							<textarea name="foodallergies" id="foodallergies"></textarea>						
+							<label id="label_otherinfo" for="otherinfo">Anything else we should know/Questions?</label>
+							<textarea name="otherinfo" id="otherinfo"></textarea>
+						</div>
                         <br/>
                         <input type="button" name="submit" id="submit" class="submit" value="Submit">
                     </fieldset>
