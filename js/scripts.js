@@ -58,8 +58,11 @@ $(document).ready(function(){
 			code = $('#rsvp_code').val();
 				
 			if(code == "") {
-				alert("Sorry, you must enter a registration code first.");
+				alert("Sorry, you must enter a reservation code first.");
 			} else {
+				$('#loading').fadeIn();
+				$('#errormsg').hide(); // if it's visible, make sure it's hidden
+				
 				code = "G-" + code;
 				$.ajax({
 					url: "Lib/Ajax.php",
@@ -72,16 +75,18 @@ $(document).ready(function(){
 						type: "reservation"
 					},
 				    success: function (response) {
+						$('#loading').hide();
 				    	if(response == "Sorry, this code doesn't match any guests on our guest list. Please try again.") {
 					        passFail = false;
-					        alert(response);
+							$('#errormsg').fadeIn();
 				        } else {
 					        passFail = true;
 					        var obj = jQuery.parseJSON(response);
 					         	
 					        $('#label_names').css('display','none');
 					        $('#rsvp_code').css('display','none').val("");
-					         	
+					        $('#errormsg').hide(); // if error message is shown, hide it
+							
 					        $('#attendees').append('<table></table>');
 					         	
 					        for(var i = 0; i < obj.length; i++) {
@@ -89,10 +94,9 @@ $(document).ready(function(){
 									<tr id="' + obj[i].Id + '"> \
 										<td> \
 											<label class="label_attending">' + obj[i].Name + '</label> \
-											<br /> \
 										</td> \
 										<td> \
-											<label class="label_yes" for="yes'+ obj[i].Id +'">I / We will be there!</label> \
+											<label class="label_yes" for="yes'+ obj[i].Id +'">I\'ll be there!</label> \
 											<input type="radio" required name="attending' + i +'" id="yes'+ obj[i].Id +'" value="Yes"> \
 										</td> \
 										<td> \

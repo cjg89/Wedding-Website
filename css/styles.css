@@ -141,9 +141,10 @@ input#submit {
 	margin-top: 15px;
 	text-transform: capitalize; /* IE7 needs this for some reason to work. */
 }
-#hidden {
+#hidden, #errormsg {
 	display: none;
 }	
+#loading { display: none; text-align: center; }
 #attendees table {
 	margin: auto;
 }

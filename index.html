@@ -82,14 +82,20 @@
                 
                 <form method="post" action="" id="rsvpform">
                     <fieldset>
-                        <label id="label_names" for="names">Please enter four-digit RSVP code on your invitation below:</label>
+                        <label id="label_names" for="names">Please enter the four-digit RSVP code on your invitation below:</label>
                         <input type="text" required name="rsvp_code" id="rsvp_code">
+						<p id="loading"><img src="img/loading.gif" /></p>
                         <div id="hidden">
-							<div id="attendees"></div>
+							<div id="attendees">
+								<p>Howdy! Your party is listed below. Please specify who will or will not be attending, then click the "Submit RSVP" button to confirm.</p>
+							</div>
 							<label id="label_foodallergies" for="foodallergies">Do you need any accommodations for food allergies?</label>
 							<textarea name="foodallergies" id="foodallergies"></textarea>						
 							<label id="label_otherinfo" for="otherinfo">Anything else we should know/Questions?</label>
 							<textarea name="otherinfo" id="otherinfo"></textarea>
+						</div>
+						<div id="errormsg">
+							<p>Sorry, this code doesn't match any guests on our guest list. Please try again.</p>
 						</div>
                         <br/>
                         <input type="submit" id="submit" class="submit" value="Submit">
