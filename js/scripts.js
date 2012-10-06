@@ -51,7 +51,8 @@ $(document).ready(function(){
 	var passFail;
 	var code;
 		
-	$('#submit').click(function() {		
+	$('#rsvpform').submit(function(e) {
+		e.preventDefault();						   
 		
 		if(!passFail) {
 			code = $('#rsvp_code').val();
