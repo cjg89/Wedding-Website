@@ -124,12 +124,12 @@ form input[type="text"], form textarea {
 	padding: 10px 20px;
 }
 	
-input#no, input#yes { cursor: pointer; }
-label#label_yes, label#label_no {
+input.no, input.yes { cursor: pointer; }
+label.label_yes, label.label_no {
 	margin-left: 5px;
 	cursor: pointer;
 }
-label#label_yes {  }
+label.label_yes {  }
 input#submit {
 	width: 300px;
 	height: 111px;

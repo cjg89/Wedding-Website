@@ -46,21 +46,6 @@ $(document).ready(function(){
 		}
 		return [];
 	  }
-	  
-	
-	/* RSVP Yes/No Image Tick */					   
-	$("input[name='attending']").imageTick({
-		tick_image_path: { 
-			Yes: "img/rsvp_check_yes.png", 
-			No: "img/rsvp_check_no.png"
-		},
-		no_tick_image_path: { 
-			Yes: "img/rsvp_check.png", 
-			No: "img/rsvp_check.png"
-		},
-		image_tick_class: "attendingbtn",	
-	});
-	
 	
 	/* Handle Form Requests */	
 	var passFail;
@@ -77,22 +62,14 @@ $(document).ready(function(){
 				code = "G-" + code;
 				$.ajax({
 					url: "Lib/Ajax.php",
-<<<<<<< HEAD
 				    type: "POST",
-=======
-				    type: "POST",/*
->>>>>>> 714f4014c754cfe60a634993cae07b9e055f3aab
 				    data: {
 						code: code, 
 						attendees: null, 
 						comments: null, 
 						allergies: null, 
 						type: "reservation"
-<<<<<<< HEAD
 					},
-=======
-					},*/
->>>>>>> 714f4014c754cfe60a634993cae07b9e055f3aab
 				    success: function (response) {
 				    	if(response == "Sorry, this code doesn't match any guests on our guest list. Please try again.") {
 					        passFail = false;
@@ -114,16 +91,17 @@ $(document).ready(function(){
 											<br /> \
 										</td> \
 										<td> \
-											<label id="label_yes" for="yes">I / We will be there!</label> \
-											<input type="radio" required name="attending' + i +'" class="yes" value="Yes"> \
+											<label class="label_yes" for="yes'+ obj[i].Id +'">I / We will be there!</label> \
+											<input type="radio" required name="attending' + i +'" id="yes'+ obj[i].Id +'" value="Yes"> \
 										</td> \
 										<td> \
-											<label id="label_no" for="no">With regrets</label> \
-											<input type="radio" required name="attending' + i +'" class="no" value="No"> \
+											<label class="label_no" for="no'+ obj[i].Id +'">With regrets</label> \
+											<input type="radio" required name="attending' + i +'" id="no'+ obj[i].Id +'" value="No"> \
 										</td> \
 									</tr> \
 								');
-					        }		    
+					        }
+							
 					    	$('#hidden').fadeIn();
 				    	}  	
 					}
@@ -174,5 +152,6 @@ $(document).ready(function(){
 		    }
 		}
 	});
+	
 	
 });
