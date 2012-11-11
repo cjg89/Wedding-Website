@@ -120,7 +120,13 @@ hr {
 	margin-left: 0;	
 }
 
+#attendees p { font-size: 14px; }
 form { text-align: center; padding-top: 15px; }
+form table { margin: 20px auto; }
+form table th { font-size: 14px; font-style: italic; padding: 8px; font-weight: normal; }
+form table tbody tr { border-top: 1px solid #182339; }
+form table tbody td { vertical-align: middle; }
+form table tbody td label { margin: 0 !important; padding: 10px 0; }
 form input[type="text"], form textarea { 
 	font-size: 18px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -135,25 +141,37 @@ label.label_yes, label.label_no {
 	cursor: pointer;
 }
 label.label_yes {  }
-input#submit {
+input.submit {
 	width: 300px;
 	height: 111px;
 	border: 0;
 	text-indent: -9999px;
 	background: url('../img/spritesheet.png') center center no-repeat;
-	background-position: 0px -825px;
+	background-position: 0px -1321px;
 	cursor: pointer;
 	margin-top: 15px;
 	text-transform: capitalize; /* IE7 needs this for some reason to work. */
 }
-#hidden, #errormsg {
+input.submit:hover {
+	background-position: 0px -1200px;
+}
+input.submitrsvp.submit {
+	background-position: 0px -825px;
+}
+input.submitrsvp.submit:hover {
+	background-position: 0px -704px;
+}
+#hidden, #errormsg, #submitsuccess {
 	display: none;
 }	
-#loading { display: none; text-align: center; }
-#attendees table {
-	margin: auto;
+#submitsuccess {
+	background: #FFFEF4;
+    border-radius: 20px 20px 20px 20px;
+    color: #172238;
+    padding: 20px;
+    text-shadow: none;
 }
-input#submit:hover { background-position: 0px -704px; }
+#loading { display: none; text-align: center; }
 
 #footer_wrap { background: url('../img/footer_bg.jpg') bottom center repeat-x; }
 #footer { text-align:center; padding: 50px 0; }
@@ -214,4 +232,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	#rsvpform { 
 		margin-left: -10px;
 	}
+	
+	h2 { font-size: 50px; }
+	#rsvp { font-size: 14px; line-height: 18px; }
+	#rsvp i { margin-top: 2px !important;}
+	#rsvp h2#rsvp_header { font-size: 30px; margin-bottom: -10px; }
+	#submitsuccess { margin-left: 10px; }
 }

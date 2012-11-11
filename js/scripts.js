@@ -87,21 +87,21 @@ $(document).ready(function(){
 					        $('#rsvp_code').css('display','none').val("");
 					        $('#errormsg').hide(); // if error message is shown, hide it
 							
-					        $('#attendees').append('<table></table>');
+							$('#submit').addClass('submitrsvp');
+							
+					        $('#attendees').append('<table><thead><tr><th></th><th>I\'ll be there!</th><th>With Regrets</th></tr></thead><tbody></tbody></table>');
 					         	
 					        for(var i = 0; i < obj.length; i++) {
-						    	$('#attendees').children('table').append(' \
+						    	$('#attendees').find('tbody').append(' \
 									<tr id="' + obj[i].Id + '"> \
 										<td> \
 											<label class="label_attending">' + obj[i].Name + '</label> \
 										</td> \
 										<td> \
-											<label class="label_yes" for="yes'+ obj[i].Id +'">I\'ll be there!</label> \
-											<input type="radio" required name="attending' + i +'" id="yes'+ obj[i].Id +'" value="Yes"> \
+											<input type="radio" name="attending' + i +'" id="yes'+ obj[i].Id +'" value="Yes"> \
 										</td> \
 										<td> \
-											<label class="label_no" for="no'+ obj[i].Id +'">With regrets</label> \
-											<input type="radio" required name="attending' + i +'" id="no'+ obj[i].Id +'" value="No"> \
+											<input type="radio" name="attending' + i +'" id="no'+ obj[i].Id +'" value="No"> \
 										</td> \
 									</tr> \
 								');
@@ -132,6 +132,10 @@ $(document).ready(function(){
 			
 			if((count /2) == attendeesCount) { 
 			// if each person has a yes/no value assigned:
+			
+				$('#hidden, #submit').hide();
+				$('#loading').fadeIn();
+			
 				$.ajax({
 					url: "Lib/Ajax.php",
 				    type: "POST",
@@ -145,7 +149,8 @@ $(document).ready(function(){
 				    cache: false,
 				    success: function (response) {
 				    	if(response == "Success") {
-					    	alert('Thank you for your response!');
+							$('#loading').hide();
+							$('#submitsuccess').fadeIn();
 				        } else if (response == "Failure") {
 					    	alert('Whoops, something went wrong when submitting your request, sorry! Please try again later, or <a href="jogreybill@gmail.com">email the bride</a> if you\'re still having trouble.');
 				        }

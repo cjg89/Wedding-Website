@@ -104,26 +104,29 @@
                 <div id="rsvp_content_top">
                     <h2 id="rsvp_header">Can You Make It?</h2>
 					<br/>
-                    <p>Use the form below to RSVP.</p>
-					<p>Please note that seating is limited at our venue; when we reach max capacity, we will no longer be able to accept plus ones for any party.  We apologize and appreciate your understanding.</p>
+                    <p>Use the form below to RSVP.  You will need the information from your RSVP card that was included with your invitation.</p>
+					<p>If you've lost your RSVP information card, please <i style="margin-top: 6px;" class="icon-white icon-envelope"></i> <a href="mailto:jogreybill@gmail.com">email Jo</a>.</p>
                 </div>
                 
                 <form method="post" action="" id="rsvpform">
                     <fieldset>
-                        <label id="label_names" for="names">Please enter the four-digit RSVP code on your invitation below:</label>
-                        <input type="text" required name="rsvp_code" id="rsvp_code">
+                        <label id="label_names" for="names">Please enter the four-digit RSVP code from your invitation information below:</label>
+                        <input type="text" name="rsvp_code" id="rsvp_code">
 						<p id="loading"><img src="img/loading.gif" /></p>
                         <div id="hidden">
 							<div id="attendees">
 								<p>Howdy! Your party is listed below. Please specify who will or will not be attending, then click the "Submit RSVP" button to confirm.</p>
 							</div>
-							<label id="label_foodallergies" for="foodallergies">Do you need any accommodations for food allergies?</label>
+							<label id="label_foodallergies" for="foodallergies">Does your party need any accommodations for food allergies?</label>
 							<textarea name="foodallergies" id="foodallergies"></textarea>						
 							<label id="label_otherinfo" for="otherinfo">Anything else we should know/Questions?</label>
 							<textarea name="otherinfo" id="otherinfo"></textarea>
 						</div>
 						<div id="errormsg">
-							<p>Sorry, this code doesn't match any guests on our guest list. Please try again.</p>
+							<p>Sorry, this code doesn't match any parties on our guest list. Please try again.</p>
+						</div>
+						<div id="submitsuccess">
+							<p>Your RSVP was submitted successfully.  Thanks for your response!</p>
 						</div>
                         <br/>
                         <input type="submit" id="submit" class="submit" value="Submit">
