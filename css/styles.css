@@ -93,7 +93,7 @@ hr {
 	background: url('../img/spritesheet.png') center center no-repeat;
 	background-position: 0px -1067px;
 	text-indent: -9999px;
-	margin: auto;
+	margin: -20px auto 0 auto;
 }
 #header_details a:hover { background-position: 0px -946px; }
 
@@ -182,7 +182,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
  **/
 @media (min-width: 768px) and (max-width: 979px) {
 	.container.wide > .row { width: 740px; }
-	.container.wide > .row > div:first-child { margin-left: 8px; }
 	
 	#header #header_details { margin-top: 20px; }
 	#header_details > .row { font-size: 18px; line-height: 22px; }
@@ -199,6 +198,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	#header { text-align: center; }
 	#header #header_photo img { display: none; }
 	#header #header_details { margin-top: -20px; }
+	#header_details a { margin-bottom: 30px; }
 	#header_details .span3 { width: 50%; float: left; }
 	#header_details > .row { font-size: 18px; line-height: 22px; }
 	#header_details > .row .alt { font-size: 14px; line-height: 22px; }
@@ -206,4 +206,12 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	#wedding_info img { width: 100%; height: auto; float: none; }
 	
 	#map { margin: 0 0 20px 0; }
+}
+
+@media (max-width: 480px) {
+	/* Not sure wtf causes this, but iphone pushes this stuff 10px right */
+	#header_details a,
+	#rsvpform { 
+		margin-left: -10px;
+	}
 }
