@@ -55,9 +55,9 @@ h3 {
 
 p { line-height: 1.5em; margin-top:10px; }
 a { color: #fffef4; font-weight: bold; }
+a:hover { color: #fffef4; }
 
 img { }
-img.alignright { float: right; }
 
 hr {
 	display: block;
@@ -96,6 +96,11 @@ hr {
 	margin: auto;
 }
 #header_details a:hover { background-position: 0px -946px; }
+
+
+#directions { }
+#directions_from { text-align:center; clear:both; }
+#map { margin: 0 30px 20px 0; }
 
 
 #rsvp_wrap { background: url('../img/rsvp_bg.png') repeat; margin: 50px 0; }
@@ -150,11 +155,26 @@ input#submit {
 }
 input#submit:hover { background-position: 0px -704px; }
 
-#footer_wrap { background: #000 url('../img/footer_bg.jpg') top center repeat-x; }
+#footer_wrap { background: url('../img/footer_bg.jpg') bottom center repeat-x; }
 #footer { text-align:center; padding: 50px 0; }
 #footer p { font-size: 10px; margin-top: 30px; }
 #footer p a { color: #B6BBC7; }
 #footer p a:hover { color: #fff; }
+
+
+/**
+ * High Res Spritesheet Adjustments
+ **/
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), 
+only screen and (-o-min-device-pixel-ratio: 3/2), 
+only screen and (-webkit-min-device-pixel-ratio: 1.5), 
+only screen and (min-device-pixel-ratio: 1.5) {
+	#header_details a,
+	input#submit { 
+		background-image: url('../img/spritesheet_hr.png'); 
+		background-size: 300px 1416px;
+	}
+}
 
 
 /** 
@@ -184,4 +204,6 @@ input#submit:hover { background-position: 0px -704px; }
 	#header_details > .row .alt { font-size: 14px; line-height: 22px; }
 	
 	#wedding_info img { width: 100%; height: auto; float: none; }
+	
+	#map { margin: 0 0 20px 0; }
 }
