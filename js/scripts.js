@@ -63,7 +63,7 @@ $(document).ready(function(){
 				$('#loading').fadeIn();
 				$('#errormsg').hide(); // if it's visible, make sure it's hidden
 				
-				code = "G-" + code;
+				//code = "G-" + code;
 				$.ajax({
 					url: "Lib/Ajax.php",
 				    type: "POST",
