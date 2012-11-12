@@ -199,7 +199,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
  * Responsive Style Adjustments
  **/
 @media (min-width: 768px) and (max-width: 979px) {
-	.container.wide > .row { width: 740px; }
+	.container.wide > .row { width: 720px; }
 	
 	#header #header_details { margin-top: 20px; }
 	#header_details > .row { font-size: 18px; line-height: 22px; }
