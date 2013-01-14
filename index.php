@@ -139,12 +139,12 @@
                     </fieldset>
                 </form>
 			</div>
-			<?php else { ?>
+			<?php } else { ?>
 			<div class="span12">
                 <div id="rsvp_content_top">
                     <h2 id="rsvp_header">Can You Make It?</h2>
 					<br/>
-                    <p>The RVSP form will be available when invitations go out.  Please check back soon!</p>
+                    <p>The RVSP form will be available when invitations go out.  Please check back soon!</p><br/ >
 				</div>
 			</div>
 			<?php } ?>
