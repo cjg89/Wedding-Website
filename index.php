@@ -1,3 +1,8 @@
+<?php
+	// Set this variable to true to display the contact
+	// form; set to false to hide it.
+	$display_rsvp_form = false;
+?>
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -100,6 +105,7 @@
 	
 	<div class="container wide" id="rsvp_wrap">        
         <div class="row" id="rsvp">
+			<?php if ($display_rsvp_form == true) { ?>
         	<div class="span12">
                 <div id="rsvp_content_top">
                     <h2 id="rsvp_header">Can You Make It?</h2>
@@ -133,6 +139,15 @@
                     </fieldset>
                 </form>
 			</div>
+			<?php else { ?>
+			<div class="span12">
+                <div id="rsvp_content_top">
+                    <h2 id="rsvp_header">Can You Make It?</h2>
+					<br/>
+                    <p>The RVSP form will be available when invitations go out.  Please check back soon!</p>
+				</div>
+			</div>
+			<?php } ?>
 		</div>
     </div>
 	<div class="container">    
