@@ -121,9 +121,9 @@ $(document).ready(function(){
 			var count 			= 0,
 				attendeesCount 	= 0;
 					
-			$('#attendees :radio').each(function(){
-				if($(this).attr('checked') == 'checked'){
-					var id = $(this).parent('tr').attr('id'); // Get each person's ID
+			$('#attendees input[type="radio"]').each(function(){
+				if($(this).is(':checked')){
+					var id = $(this).parents('tr').attr('id'); // Get each person's ID
 					attendees[id] = $(this).val(); // Assign yes/no val to each attendee by ID
 					attendeesCount++;
 				}
