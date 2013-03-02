@@ -1,7 +1,7 @@
 <?php
 	// Set this variable to true to display the contact
 	// form; set to false to hide it.
-	$display_rsvp_form = false;
+	$display_rsvp_form = true;
 ?>
 <!DOCTYPE html>
 <head>
@@ -155,7 +155,7 @@
 			<div class="span12">
 				<h2>Other Information</h2>
 				<h3>Gift Registries</h3>
-				<p>We don’t have any registries set up yet--we will post them here when we do.  We appreciate your generosity!</p>
+				<p>We are currently registered at <a href="http://www.target.com/wedd/registry/WmYBcvFbwjTni5lXsUFAcA">Target</a> and <a href="http://www.amazon.com/registry/wedding/3L4KS8USEYORF">Amazon</a>.  (We are still working on our registries!)</p>
 					
 				<h3>Any Other Questions?</h3>
 				<p>Got any other questions about the wedding?  Feel free to shoot Jo an email at <a href="mailto:jogreybill@gmail.com">jogreybill@gmail.com</a>.</p>
