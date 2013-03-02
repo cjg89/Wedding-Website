@@ -66,7 +66,8 @@
 	
 	function updateAllergies($code, $attendees, $comments, $allergies) {
 		try {
-			$attendees = json_decode($attendees, true);
+			//return $attendees;
+			$attendees = json_decode(stripslashes($attendees), true);
 			//return print_r($attendees);
 			
 			//Build array to push to salesforce
